@@ -55,7 +55,7 @@ Chosen because I am interested and it is relatively small, should be easier to d
 Best practices
 - [ ] There are unit tests (1 point)
 - [ ] There is an integration test (1 point)
-- [ ] Linter and/or code formatter are used (1 point)
-- [ ] There's a Makefile (1 point)
-- [ ] There are pre-commit hooks (1 point)
+- [x] Linter and/or code formatter are used (1 point)
+- [x] There's a Makefile (1 point)
+- [x] There are pre-commit hooks (1 point)
 - [ ] There's a CI/CI pipeline (2 points)
