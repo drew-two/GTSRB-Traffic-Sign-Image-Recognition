@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 tensorflow = "==2.8.2"
+importlib-resources = "*"
 
 [dev-packages]
 mlflow = "1.28.0"
