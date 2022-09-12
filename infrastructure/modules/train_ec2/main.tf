@@ -10,7 +10,6 @@ resource "aws_instance" "train_ec2" {
   provisioner "remote-exec" {
     inline = [
         "apt update",
-        "echo \"export MODEL_BUCKET=${var.model_bucket}\" >> ~/.bashrc",
         "echo \"export MLFLOW_URL=${var.mlflow_dns}\" >> ~/.bashrc",
         "git clone https://github.com/drew-two/MLOpsFinal.git",
         "cd MLOpsFinal/",
