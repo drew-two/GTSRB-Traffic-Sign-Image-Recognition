@@ -19,9 +19,8 @@ variable "vpc_security_group_id" {
 }
 
 variable "availability_zone" {
-    type = string
-    description = ""
-    default = "${var.aws_region}a"
+    description = "availability_zone"
+    default = "${aws_region}a"
 }
 
 variable "source_stream_name" {
