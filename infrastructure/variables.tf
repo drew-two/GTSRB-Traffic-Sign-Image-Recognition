@@ -63,6 +63,8 @@ variable "key_name" {
     description = "Key-value pair to use (should already exist in AWS)"
 }
 
+## Module variables
+
 variable "lambda_function_local_path" {
     description = "Path to final lambda function"
 }

@@ -56,7 +56,7 @@ module "mlflow_instance"  {
   availability_zone     = vars.availability_zone
   subnet_id             = vars.subnet_id 
   vpc_security_group_id = vars.vpc_security_group_id
-  model_bucket          = module.s3_bucket.id
+  model_bucket          = module.s3_bucket.bucket
 }
 
 
@@ -70,7 +70,7 @@ module "train_instance"  {
   availability_zone     = vars.availability_zone
   subnet_id             = vars.subnet_id 
   vpc_security_group_id = vars.vpc_security_group_id
-  mlflow_dns            = module.mlflow_instance.private_dns
+  mlflow_dns            = module.mlflow_instance.ec2_private_dns
 }
 
 # image registry

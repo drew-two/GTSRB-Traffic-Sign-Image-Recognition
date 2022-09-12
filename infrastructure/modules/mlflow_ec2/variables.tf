@@ -26,7 +26,7 @@ variable "subnet_id" {
 }
 
 variable "vpc_security_group_id" {
-    type = string
+    type = list(string)
     description = "vpc_security_group_id"
 }
 
