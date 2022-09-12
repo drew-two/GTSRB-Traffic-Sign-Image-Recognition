@@ -13,7 +13,7 @@ def read_text(file):
 def read_image(file):
     test_directory = Path(__file__).parent
 
-    with open(test_directory / file, 'r') as f_in:
+    with open(test_directory / file, 'rb') as f_in:
         return f_in.read()
 
 def test_base64_decode_image():
@@ -28,8 +28,8 @@ def test_base64_decode():
 
     actual_result = model.base64_decode(base64_input)
     expected_result = {
-        'sign_prediction': 'Speed limit (20km/h) sign.',
-        'sign_id': 0,
+        "sign_prediction": "Speed limit (20km/h) sign.",
+        "sign_id": 0,
     }
 
     print(actual_result)
