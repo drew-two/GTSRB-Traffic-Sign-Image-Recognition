@@ -40,11 +40,11 @@ actual_record = json.loads(records[0]['Data'])
 pprint(actual_record)
 
 expected_record = {
-    'model': 'ride_duration_prediction_model',
-    'version': 'Test123',
+    'model': 'sign-classifier',
+    'version': model_version,
     'prediction': {
-        'ride_duration': 21.3,
-        'ride_id': 256,
+        'sign_prediction': "Speed limit (20km/h) sign.", 
+        'sign_id': 256
     },
 }
 

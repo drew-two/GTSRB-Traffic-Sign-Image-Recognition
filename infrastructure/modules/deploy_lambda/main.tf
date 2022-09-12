@@ -15,7 +15,7 @@ resource "aws_lambda_function" "kinesis_lambda" {
     variables = {
       PREDICTIONS_STREAM_NAME = var.output_stream_name
       MODEL_BUCKET = var.model_bucket
-      MODEL_NAME = var.model_name
+      RUN_ID = var.run_id
     }
   }
   timeout = 180
