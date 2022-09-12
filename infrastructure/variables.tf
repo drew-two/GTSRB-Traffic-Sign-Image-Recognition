@@ -46,21 +46,21 @@ variable "ami_id" {
     description = "General service AMI ID"
 }
 
-# variable "train_instance_name" {
-#     description = "Training EC2 instance name"
-# }
+variable "train_instance_name" {
+    description = "Training EC2 instance name"
+}
 
-# variable "train_instance_type" {
-#     description = "Training EC2 instance type"
-# }
+variable "train_instance_type" {
+    description = "Training EC2 instance type"
+}
 
-# variable "train_ami_id" {
-#     description = "Training EC2 instance AMI to use"
-# }
+variable "train_ami_id" {
+    description = "Training EC2 instance AMI to use"
+}
 
-# variable "var.key_name" {
-#     description = "Key-value pair to use (should already exist in AWS)"
-# }
+variable "var.key_name" {
+    description = "Key-value pair to use (should already exist in AWS)"
+}
 
 variable "lambda_function_local_path" {
     description = "Path to final lambda function"
