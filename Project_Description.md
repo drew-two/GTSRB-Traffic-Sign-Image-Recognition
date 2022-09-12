@@ -1,5 +1,7 @@
 # MLOps Final Project
 
+You may not agree with how I have judged myself so far, this for me to plan my project
+
 ## What's Needed
 
 1. Problem description

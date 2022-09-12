@@ -1,4 +1,4 @@
-FROM python:3.9-slim
+FROM public.ecr.aws/lambda/python:3.9
 
 RUN sudo apt-get update && sudo apt-get install -y awscli zip unzip
 
@@ -11,7 +11,6 @@ COPY [ "Pipfile", "Pipfile.lock", "./"]
 
 RUN pipenv install --system --deploy
 
-COPY [ "predict.py", "lin_reg.bin", "./"]
+COPY [ "lambda_function.py", "model.py", "./" ]
 
-EXPOSE 9696
-ENTRYPOINT [ "gunicorn", "--bind=0.0.0.0:9696", "predict:app"]
+CMD [ "lambda_function.lambda_handler" ]

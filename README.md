@@ -32,5 +32,6 @@ s3://tf-state-mlops-final
 
 - MLflow tracking for experiment + models
     - See backend.db, ./models, or s3://mlops-final-models (public bucket)
+    - There's only few runs in MLflow because I don't have the AWS quota to allocate GPU instances 
 - See pyproject.toml, .pre-commit-config.yaml for linter and/or code formatter
 - There's pre-commit hooks
