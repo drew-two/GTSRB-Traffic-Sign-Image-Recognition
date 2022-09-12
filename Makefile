@@ -1,3 +1,5 @@
+# Only for local testing - different nomenclature from ECR
+
 LOCAL_TAG:=$(shell date +"%Y-%m-%d-%H-%M")
 LOCAL_IMAGE_NAME:=GTSRB-prediction:${LOCAL_TAG}
 test:

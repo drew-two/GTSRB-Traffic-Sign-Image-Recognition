@@ -5,8 +5,10 @@ import base64
 import boto3
 import mlflow
 
+from tensorflow.keras.applications.resnet_v2 import preprocess_input, decode_predictions
+from tensorflow.keras.preprocessing import image
 
-def get_model_location(run_id):
+def get_model_location(model_name):
     model_location = os.getenv('MODEL_LOCATION')
 
     if model_location is not None:
@@ -19,16 +21,19 @@ def get_model_location(run_id):
     return model_location
 
 
-def load_model(model_id):
-    model_path = get_model_location(model_id)
-    model = mlflow.tensorflow.load_model(model_path, dst_path="./artifacts_local/")
+def load_model(model_name):
+    model_path = get_model_location(model_name)
+    model = mlflow.keras.load_model(
+        model_uri=f"models:/{model_name}/Production",
+        dst_path="../artifacts_local/",
+    )
     return model
 
 
 def base64_decode(encoded_data):
     decoded_data = base64.b64decode(encoded_data).decode('utf-8')
-    ride_event = json.loads(decoded_data)
-    return ride_event
+    sign_event = json.loads(decoded_data)
+    return sign_event
 
 
 class ModelService:
@@ -37,9 +42,10 @@ class ModelService:
         self.model_version = model_version
         self.callbacks = callbacks or []
 
-    def predict(self, features):
-        pred = self.model.predict(features)
-        return float(pred[0])
+    def predict(self, image):
+        pred = self.model.predict(image)
+        predicted_class = class_labels[np.argmax(prediction, axis=1)[0]]
+        return predicted_class + " sign."
 
     def lambda_handler(self, event):
         # print(json.dumps(event))
@@ -50,13 +56,15 @@ class ModelService:
             encoded_data = record['kinesis']['data']
             sign_event = base64_decode(encoded_data)
 
-            # print(ride_event)
             sign = sign_event['sign']
             sign_id = sign_event['sign_id']
 
-            sign_image = base64_decode(sign)
+            sign_image = base64.decodebytes(sign)
+            image_array = image.img_to_array(sign_image)
+            image_batch = np.expand_dims(sign_image, axis=0)
+            normalized = preprocess_input(img_batch)
 
-            prediction = self.predict(sign_image)
+            prediction = self.predict(image_batch)
 
             prediction_event = {
                 'model': 'sign_prediction_model',
@@ -78,12 +86,12 @@ class KinesisCallback:
         self.prediction_stream_name = prediction_stream_name
 
     def put_record(self, prediction_event):
-        ride_id = prediction_event['prediction']['ride_id']
+        sign_id = prediction_event['prediction']['sign_id']
 
         self.kinesis_client.put_record(
             StreamName=self.prediction_stream_name,
             Data=json.dumps(prediction_event),
-            PartitionKey=str(ride_id),
+            PartitionKey=str(sign_id),
         )
 
 
@@ -96,8 +104,8 @@ def create_kinesis_client():
     return boto3.client('kinesis', endpoint_url=endpoint_url)
 
 
-def init(prediction_stream_name: str, model_id: str, test_run: bool):
-    model = load_model(model_id)
+def init(prediction_stream_name: str, model_name: str, test_run: bool):
+    model = load_model(model_name)
 
     callbacks = []
 

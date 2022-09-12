@@ -11,6 +11,7 @@ lambda_function_local_path = "../lambda_function.py"
 docker_image_local_path = "../Dockerfile"
 ecr_repo_name = "stg_sign_prediction_model"
 lambda_function_name = "stg_sign_prediction_lambda"
+model_name="sign-classifier"
 
 instance_type = "t2.large"
 train_instance_type = "t2.2xlarge"
