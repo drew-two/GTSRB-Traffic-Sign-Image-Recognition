@@ -99,7 +99,7 @@ class ModelService:
 
     def predict(self, img):
         prediction = self.model.predict(img)
-        print(predictio)
+        print(prediction)
         predicted_class = class_labels[np.argmax(prediction, axis=1)[0]]
         return predicted_class + " sign."
 

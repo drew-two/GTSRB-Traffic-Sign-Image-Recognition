@@ -15,8 +15,7 @@ def read_text(file):
 def read_image(file):
     test_directory = Path(__file__).parent
 
-    with open(test_directory / file, 'rb') as f_in:
-        return Image.open(f_in.read())
+    return Image.open(test_directory / file)
 
 def test_base64_decode_image():
     base64_input = read_text('image.b64')
