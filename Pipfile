@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 tensorflow = "==2.8.2"
+sklearn = "*"
 importlib-resources = "*"
 boto3 = "*"
 
@@ -17,4 +18,3 @@ pylint = "*"
 matplotlib = "*"
 jupyter = "*"
 ipykernel = "*"
-sklearn = "*"
