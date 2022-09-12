@@ -1,7 +1,28 @@
-# Create Kinesis Data Stream
+variable "stream_name" {
+    type = string
+    description = "Kinesis stream name"
+}
 
-resource "aws_kinesis_stream" "stream" {
-    name        = var.stream_name
-    shard_count = var.shard_count
-    retention_period = var.retention_period
+variable "shard_count" {
+    type = number
+    description = "Kinesis stream shard count"
+}
+
+variable "retention_period" {
+    type = number
+    description = "Kinesis stream retention period"
+}
+
+variable "shard_level_metrics" {
+    type = list(string)
+    description = "Kinesis stream shard level metrics"
+    default = [
+        "IncomingBytes",
+
+    ]
+}
+
+variable "tags" {
+    description = "Tags for kinesis stream"
+    default = "mlops-final"
 }
