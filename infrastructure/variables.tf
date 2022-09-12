@@ -38,6 +38,14 @@ variable "model_bucket_name" {
     description = "Model S3 bucket name"
 }
 
+variable "mlflow_instance_name" {
+    description = "MLflow instance name"
+}
+
+variable "ami_id" {
+    description = "General service AMI ID"
+}
+
 # variable "train_instance_name" {
 #     description = "Training EC2 instance name"
 # }

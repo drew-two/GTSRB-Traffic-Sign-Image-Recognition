@@ -46,6 +46,17 @@ module "s3_bucket"  {
   bucket_name = "${var.model_bucket_name}-${var.project_id}"
 }
 
+# MLflow instance
+module "mlflow_instance"  {
+  source        = "./modules/mlflow_ec2"
+  ami_id        = var.ami_id
+  key_name      = var.key_name
+  ec2_name      = "${var.instance_name}-${var.project_id}"
+  instance_type = vars.instance_type
+  model_bucket  = module.s3_bucket.id
+}
+
+
 # # Training instance
 # module "train_instance"  {
 #   source        = "./modules/train_ec2"
@@ -53,6 +64,7 @@ module "s3_bucket"  {
 #   key_name      = var.key_name
 #   ec2_name      = "${var.train_instance_name}-${var.project_id}"
 #   instance_type = vars.train_instance_type
+#   mlflow_dns     = module.mlflow_instance.private_dns
 # }
 
 # image registry

@@ -10,6 +10,8 @@ resource "aws_instance" "train_ec2" {
   provisioner "remote-exec" {
     inline = [
         "apt update",
+        "echo \"export MODEL_BUCKET=${var.model_bucket}\" >> ~/.bashrc",
+        "echo \"export MLFLOW_URL=${var.mlflow_dns}\" >> ~/.bashrc",
         "git clone https://github.com/drew-two/MLOpsFinal.git",
         "cd MLOpsFinal/",
         "wget -P ./data https://sid.erda.dk/public/archives/daaeac0d7ce1152aea9b61d9f1e19370/GTSRB-Training_fixed.zip",
@@ -19,16 +21,16 @@ resource "aws_instance" "train_ec2" {
         "rm -rf ./data/GTSRB/Online-Test-sort/Images"
     ]
   }
-}
-
-output "stream_arn" {
-    value = aws_kinesis_stream.stream.arn
-}
+}   
 
 output "ec2_arn" {
     value = aws_instance.train_ec2.arn
 }
 
-output "ec2_arn" {
-    value = aws_instance.train_ec2.public_ip
+output "ec2_public_dns" {
+    value = aws_instance.train_ec2._public_dns
+}
+
+output "ec2_private_dns" {
+    value = aws_instance.train_ec2._private_dns
 }

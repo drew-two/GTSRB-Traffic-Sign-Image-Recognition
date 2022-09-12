@@ -1,6 +1,6 @@
 variable "instance_name" {
     type = string
-    description = "Training EC2 name"
+    description = "MLflow EC2 name"
 }
 
 variable "instance_type" {
@@ -17,11 +17,7 @@ variable "key_name" {
 }
 
 variable "model_bucket" {
-    description = "Model Bucket"
-}
-
-variable "mlflow_dns" {
-    description = "MLflow server url"
+    description = "SSH Key pair to use that already exists in AWS"
 }
 
 variable "subnet_id" {
