@@ -8,12 +8,28 @@ variable "project_id" {
     default = "mlops-final"
 }
 
-variable "source_stream_name" {
+variable "subnet_id" {
+    description = "project_id"
+    default = "subnet-0f52ce138a72959bd"
+}
+
+variable "vpc_security_group_id" {
+    description = "vpc_security_group_id"
+    default = "sg-091776d030c85068d"
+}
+
+variable "availability_zone" {
+    type = string
     description = ""
+    default = "${var.aws_region}a"
+}
+
+variable "source_stream_name" {
+    description = "Events sent to model"
 }
 
 variable "output_stream_name" {
-    description = ""
+    description = "Predictions from model"
 }
 
 variable "model_bucket_name" {
