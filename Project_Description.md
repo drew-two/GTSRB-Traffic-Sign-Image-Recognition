@@ -31,7 +31,7 @@ You may not agree with how I have judged myself so far, this for me to plan my p
 	- [ ] Best: 	Instructions are clear, it's easy to run the code, and the code works. The version for all the dependencies are specified.
 
 ### Best practices
-- [ ] There are unit tests (1 point)
+- [x] There are unit tests (1 point)
 - [ ] There is an integration test (1 point)
 - [x] Linter and/or code formatter are used (1 point)
 - [x] There's a Makefile (1 point)

@@ -1,6 +1,3 @@
-def test_placeholder():
-    pass
-
 from pathlib import Path
 
 import model
