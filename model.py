@@ -9,7 +9,7 @@ import numpy as np
 from tensorflow.keras.applications.resnet_v2 import preprocess_input
 from tensorflow.keras.preprocessing import image
 
-def get_model_location(model_name):
+def get_model_location(run_id):
     model_location = os.getenv('MODEL_LOCATION')
 
     if model_location is not None:
@@ -18,16 +18,16 @@ def get_model_location(model_name):
     model_bucket = os.getenv('MODEL_BUCKET', 'mlops-final-models')
     experiment_id = os.getenv('MLFLOW_EXPERIMENT_ID', '1')
 
-    model_location = f"models:/{model_name}/Production"
+    # model_location = f"models:/{model_name}/Production"
     model_location = f's3://{model_bucket}/{experiment_id}/{run_id}/artifacts/model'
 
     return model_location
 
 
-def load_model(model_name):
-    model_path = get_model_location(model_name)
+def load_model(run_id):
+    model_path = get_model_location(run_id)
     model = mlflow.keras.load_model(
-        model_uri=f"models:/{model_name}/Production",
+        model_uri=model_path,
         dst_path="../artifacts_local/",
     )
     return model
@@ -110,8 +110,8 @@ def create_kinesis_client():
     return boto3.client('kinesis', endpoint_url=endpoint_url)
 
 
-def init(prediction_stream_name: str, model_name: str, test_run: bool):
-    model = load_model(model_name)
+def init(prediction_stream_name: str, run_id: str, test_run: bool):
+    model = load_model(run_id)
 
     callbacks = []
 

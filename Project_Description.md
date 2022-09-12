@@ -1,6 +1,6 @@
 # MLOps Final Project
 
-You may not agree with how I have judged myself so far, this for me to plan my project
+You may not agree with how I have judged myself so far, this was just for me to plan my project
 
 ## What's Needed
 
@@ -9,7 +9,7 @@ You may not agree with how I have judged myself so far, this for me to plan my p
 
 2. Cloud
 	- [ ] Minimum:	The project is developed on the cloud OR the project is deployed to Kubernetes or similar container management platforms
-	- [ ] Best: 	The project is developed on the cloud and IaC tools are used for provisioning the infrastructure
+	- [x] Best: 	The project is developed on the cloud and IaC tools are used for provisioning the infrastructure
 
 3. Experiment tracking and model registry
 	- [x] Both experiment tracking and model registry are used
@@ -20,7 +20,7 @@ You may not agree with how I have judged myself so far, this for me to plan my p
 
 5. Model deployment
 	- [ ] Minimum:	Model is deployed but only locally
-	- [ ] Best: 	The model deployment code is containerized and could be deployed to cloud or special tools for model deployment are used
+	- [x] Best: 	The model deployment code is containerized and could be deployed to cloud or special tools for model deployment are used
 
 6. Model monitoring
 	- [ ] Minimum:	Basic model monitoring that calculates and reports metrics

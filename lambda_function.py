@@ -9,7 +9,7 @@ TEST_RUN = os.getenv('TEST_RUN', 'False') == 'True'
 
 model_service = model.init(
     prediction_stream_name=PREDICTIONS_STREAM_NAME,
-    model_name=MODEL_NAME,
+    run_id=RUN_ID,
     test_run=TEST_RUN,
 )
 

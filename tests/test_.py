@@ -22,7 +22,6 @@ def test_base64_decode_image():
 
     assert actual_result == expected_result
 
-
 def test_base64_decode():
     base64_input = read_text('result.b64')
 
