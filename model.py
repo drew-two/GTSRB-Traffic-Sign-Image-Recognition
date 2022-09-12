@@ -38,6 +38,7 @@ def base64_decode_image(encoded_image):
 
 def base64_decode(encoded_data):
     decoded_data = base64.b64decode(encoded_data).decode('utf-8')
+    print(decoded_data)
     sign_event = json.loads(decoded_data)
     return sign_event
 
