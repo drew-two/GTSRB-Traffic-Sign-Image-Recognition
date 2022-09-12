@@ -3,9 +3,9 @@
 resource "aws_instance" "mlflow_ec2" {
     name            = var.instance_name
     instance_type   = var.instance_type
-    security_groups = var.security_groups
+    security_groups = var.vpc_security_group_id
     key_name        = var.key_name
-    ami             = var.ami
+    ami             = var.ami_id
     subnet_id       = var.subnet_id 
 
   provisioner "remote-exec" {

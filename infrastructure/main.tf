@@ -87,7 +87,7 @@ module "lambda_function" {
   source                = "./modules/deploy_lambda"
   image_uri             = module.ecr_image.image_uri
   lambda_function_name  = "${var.lambda_function_name}_${var.project_id}"
-  model_bucket          = module.s3_bucket.id
+  model_bucket          = module.s3_bucket.bucket
   run_id                = var.run_id
   output_stream_name    = "${var.output_stream_name}-${var.project_id}"
   output_stream_arn     = module.output_kinesis_stream.stream_arn
