@@ -20,7 +20,7 @@ variable "shard_level_metrics" {
         "IncomingBytes",
         "OutgoingBytes",
         "OutgoingRecords",
-        "ReadProvisioned",
+        # "ReadProvisioned",
         "ReadProvisionedThroughputExceeded",
         "WriteProvisionedThroughputExceeded",
         "IncomingRecords",
