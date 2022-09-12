@@ -16,6 +16,6 @@ variable "output_stream_name" {
     description = ""
 }
 
-variable "bucket_name" {
+variable "model_bucket_name" {
     description = "Model S3 bucket name"
 }

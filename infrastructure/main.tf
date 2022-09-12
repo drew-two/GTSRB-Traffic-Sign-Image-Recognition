@@ -23,6 +23,7 @@ locals {
 # think of local variables just for one file; variables.tf for the whole project
 # deploy parameters should go in variables.tf
 
+# Events sent to model
 module "source_kinesis_stream"  {
   source   = "./modules/kinesis"
   retention_period = 48
@@ -31,6 +32,7 @@ module "source_kinesis_stream"  {
   tags = var.project_id
 }
 
+# Predictions from model
 module "output_kinesis_stream"  {
   source   = "./modules/kinesis"
   retention_period = 48
