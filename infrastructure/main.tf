@@ -66,7 +66,7 @@ module "ecr_image" {
 }
 
 module "lambda_function" {
-  source                = "./modules/lambda"
+  source                = "./modules/deploy_lambda"
   image_uri             = module.ecr_image.image_uri
   lambda_function_name  = "${var.lambda_function_name}_${var.project_id}"
   model_bucket          = module.s3_bucket.name
