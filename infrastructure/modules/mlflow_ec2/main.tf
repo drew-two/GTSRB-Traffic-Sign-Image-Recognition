@@ -1,12 +1,15 @@
 # Create Kinesis Data Stream
 
 resource "aws_instance" "mlflow_ec2" {
-    name            = var.instance_name
     instance_type   = var.instance_type
     security_groups = var.vpc_security_group_id
     key_name        = var.key_name
     ami             = var.ami_id
     subnet_id       = var.subnet_id 
+
+  tags = {
+    Name = var.instance_name
+  }
 
   provisioner "remote-exec" {
     inline = [

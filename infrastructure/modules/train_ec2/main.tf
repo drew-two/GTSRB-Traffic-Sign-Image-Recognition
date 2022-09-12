@@ -1,11 +1,14 @@
 # Create Kinesis Data Stream
 
 resource "aws_instance" "train_ec2" {
-    name            = var.instance_name
     instance_type   = var.instance_type
     key_name        = var.key_name
     ami             = var.ami
     subnet_id       = var.subnet_id 
+
+  tags = {
+    Name = var.instance_name
+  }
 
   provisioner "remote-exec" {
     inline = [
