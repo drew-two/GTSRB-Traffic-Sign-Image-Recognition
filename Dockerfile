@@ -1,7 +1,7 @@
 FROM public.ecr.aws/lambda/python:3.9
 
-RUN apt-get update && \
-     apt-get install -y awscli zip unzip
+RUN apt update && \
+     apt install -y awscli zip unzip
 
 RUN pip install -U pip
 RUN pip install pipenv
