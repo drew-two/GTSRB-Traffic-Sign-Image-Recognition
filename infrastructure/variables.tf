@@ -1,6 +1,6 @@
 variable "aws_region" {
     description = "AWS region to create resources"
-    default = "us-east-1"
+    default = "us-east-2"
 }
 
 variable "project_id" {
@@ -10,4 +10,12 @@ variable "project_id" {
 
 variable "source_stream_name" {
     description = ""
+}
+
+variable "output_stream_name" {
+    description = ""
+}
+
+variable "bucket_name" {
+    description = "Model S3 bucket name"
 }
