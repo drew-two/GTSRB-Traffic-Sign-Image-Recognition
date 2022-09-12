@@ -49,6 +49,8 @@ module "s3_bucket"  {
 # # Training instance
 # module "train_instance"  {
 #   source        = "./modules/train_ec2"
+#   ami_id        = var.train_ami_id
+#   key_name      = var.key_name
 #   ec2_name      = "${var.train_instance_name}-${var.project_id}"
 #   instance_type = vars.train_instance_type
 # }
@@ -62,3 +64,7 @@ module "ecr_image" {
    lambda_function_local_path = var.lambda_function_local_path
    docker_image_local_path = var.docker_image_local_path
 }
+
+# module ""{
+
+# }

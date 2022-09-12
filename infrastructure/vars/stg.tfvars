@@ -2,6 +2,7 @@ aws_region = "us-east-2"
 subnet_id = "subnet-0f52ce138a72959bd"
 vpc_security_group_id = "sg-091776d030c85068d"
 availability_zone = "us-east-2a"
+key_name = "MLOps"
 
 source_stream_name = "stg_sign_events"
 output_stream_name = "stg_sign_predictions"
@@ -13,3 +14,4 @@ lambda_function_name = "stg_sign_prediction_lambda"
 
 instance_type = "t2.large"
 train_instance_type = "t2.2xlarge"
+train_ami_id = "ami-0960ab670c8bb45f3"

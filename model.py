@@ -12,16 +12,16 @@ def get_model_location(run_id):
     if model_location is not None:
         return model_location
 
-    model_bucket = os.getenv('MODEL_BUCKET', 'mlflow-models-alexey')
+    model_bucket = os.getenv('MODEL_BUCKET', 'mlops-final-models')
     experiment_id = os.getenv('MLFLOW_EXPERIMENT_ID', '1')
 
-    model_location = f's3://{model_bucket}/{experiment_id}/{run_id}/artifacts/model'
+    model_location = f"models:/{model_name}/Production"
     return model_location
 
 
-def load_model(run_id):
-    model_path = get_model_location(run_id)
-    model = mlflow.pyfunc.load_model(model_path)
+def load_model(model_id):
+    model_path = get_model_location(model_id)
+    model = mlflow.tensorflow.load_model(model_path, dst_path="./artifacts_local/")
     return model
 
 
@@ -37,12 +37,6 @@ class ModelService:
         self.model_version = model_version
         self.callbacks = callbacks or []
 
-    def prepare_features(self, ride):
-        features = {}
-        features['PU_DO'] = f"{ride['PULocationID']}_{ride['DOLocationID']}"
-        features['trip_distance'] = ride['trip_distance']
-        return features
-
     def predict(self, features):
         pred = self.model.predict(features)
         return float(pred[0])
@@ -54,19 +48,20 @@ class ModelService:
 
         for record in event['Records']:
             encoded_data = record['kinesis']['data']
-            ride_event = base64_decode(encoded_data)
+            sign_event = base64_decode(encoded_data)
 
             # print(ride_event)
-            ride = ride_event['ride']
-            ride_id = ride_event['ride_id']
+            sign = sign_event['sign']
+            sign_id = sign_event['sign_id']
 
-            features = self.prepare_features(ride)
-            prediction = self.predict(features)
+            sign_image = base64_decode(sign)
+
+            prediction = self.predict(sign_image)
 
             prediction_event = {
-                'model': 'ride_duration_prediction_model',
+                'model': 'sign_prediction_model',
                 'version': self.model_version,
-                'prediction': {'ride_duration': prediction, 'ride_id': ride_id},
+                'prediction': {'sign_prediction': prediction, 'sign_id': sign_id},
             }
 
             for callback in self.callbacks:
@@ -101,8 +96,8 @@ def create_kinesis_client():
     return boto3.client('kinesis', endpoint_url=endpoint_url)
 
 
-def init(prediction_stream_name: str, run_id: str, test_run: bool):
-    model = load_model(run_id)
+def init(prediction_stream_name: str, model_id: str, test_run: bool):
+    model = load_model(model_id)
 
     callbacks = []
 

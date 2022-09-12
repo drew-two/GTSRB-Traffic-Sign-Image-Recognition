@@ -10,7 +10,10 @@ variable "instance_type" {
 
 variable "ami_id" {
     description = "AMI ID"
-    default = "ami-05cb80e877a1b315b"
+}
+
+variable "key_name" {
+    description = "SSH Key pair to use that already exists in AWS"
 }
 
 variable "subnet_id" {

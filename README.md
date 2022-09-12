@@ -2,11 +2,15 @@
 
 ## Dataset
 
-Run the following to get the data:
+Run the following to get the data if you need to train or something:
 
-!wget -P ../data https://sid.erda.dk/public/archives/daaeac0d7ce1152aea9b61d9f1e19370/GTSRB-Training_fixed.zip
-!wget -P ../data https://sid.erda.dk/public/archives/daaeac0d7ce1152aea9b61d9f1e19370/GTSRB_Online-Test-Images-Sorted.zip
-rm -rf ../data/GTSRB/Online-Test-sort/Images
+wget -P ./data https://sid.erda.dk/public/archives/daaeac0d7ce1152aea9b61d9f1e19370/GTSRB-Training_fixed.zip
+wget -P ./data https://sid.erda.dk/public/archives/daaeac0d7ce1152aea9b61d9f1e19370/GTSRB_Online-Test-Images-Sorted.zip
+
+unzip -q ./data/GTSRB-Training_fixed.zip -d ../data
+unzip -q ./data/GTSRB_Online-Test-Images-Sorted.zip -d ../data
+
+rm -rf ./data/GTSRB/Online-Test-sort/Images
 
 ## Running code
 

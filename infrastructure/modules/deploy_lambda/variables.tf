@@ -1,31 +1,29 @@
-variable "instance_name" {
-    type = string
-    description = "Training EC2 name"
+variable "source_stream_name" {
+  type        = string
+  description = "Source Kinesis Data Streams stream name"
 }
 
-variable "instance_type" {
-    type = string
-    description = "EC2 Instance size/type"
-    # default = "p3.2xlarge"
-    default = "t2.xlarge"
+variable "source_stream_arn" {
+  type        = string
+  description = "Source Kinesis Data Streams stream name"
 }
 
-variable "ami_id" {
-  description = "AMI ID"
-  default = "ami-05cb80e877a1b315b"
+variable "output_stream_name" {
+  description = "Name of output stream where all the events will be passed"
 }
 
-variable "subnet_id" {
-    type = string
-    description = "project_id"
+variable "output_stream_arn" {
+  description = "ARN of output stream where all the events will be passed"
 }
 
-variable "vpc_security_group_id" {
-    type = string
-    description = "vpc_security_group_id"
+variable "model_bucket" {
+  description = "Name of the bucket"
 }
 
-variable "availability_zone" {
-    type = string
-    description = "availability_zone"
+variable "lambda_function_name" {
+  description = "Name of the lambda function"
+}
+
+variable "image_uri" {
+  description = "ECR image uri"
 }

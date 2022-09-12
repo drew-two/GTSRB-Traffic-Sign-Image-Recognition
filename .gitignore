@@ -1,5 +1,6 @@
 data/GTSRB/
 data/GTSRB*
+artifacts_local/
 notebook/.ipynb_checkpoints/
 infrastructure/.terraform/
 infrastructure/.terraform*
