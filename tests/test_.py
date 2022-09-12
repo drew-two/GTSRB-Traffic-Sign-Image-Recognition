@@ -46,7 +46,7 @@ class ModelMock:
 
 
 def test_lambda_handler():
-    model_mock = ModelMock("0")
+    model_mock = ModelMock([1])
     model_version = 'Test123'
     model_service = model.ModelService(model_mock, model_version)
 
