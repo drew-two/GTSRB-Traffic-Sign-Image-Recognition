@@ -31,7 +31,7 @@ module "source_kinesis_stream"  {
   tags = var.project_id
 }
 
-module "source_kinesis_stream"  {
+module "output_kinesis_stream"  {
   source   = "./modules/kinesis"
   retention_period = 48
   shard_count = 2
