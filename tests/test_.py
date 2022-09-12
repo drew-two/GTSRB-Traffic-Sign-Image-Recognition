@@ -1,6 +1,8 @@
+import base64
 from pathlib import Path
 
 import model
+
 
 def read_text(file):
     test_directory = Path(__file__).parent
@@ -17,6 +19,7 @@ def test_base64_decode_image():
         expected_result = image.read()
 
     assert actual_result == expected_result
+
 
 def test_base64_decode():
     base64_input = read_text('result.b64')
