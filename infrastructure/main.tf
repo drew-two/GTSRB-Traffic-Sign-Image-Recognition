@@ -42,5 +42,5 @@ module "source_kinesis_stream"  {
 # model bucket
 module "s3_bucket"  {
   source      = "./modules/s3"
-  bucket_name = "${var.model_bucket_name}-${var.project_id}
+  bucket_name = "${var.model_bucket_name}-${var.project_id}"
 }
