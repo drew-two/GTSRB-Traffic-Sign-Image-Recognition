@@ -20,8 +20,8 @@ variable "model_bucket" {
   description = "Name of the bucket"
 }
 
-variable "model_name" {
-  description = "Name of the model"
+variable "run_id" {
+  description = "Run ID of the model"
 }
 
 variable "lambda_function_name" {
