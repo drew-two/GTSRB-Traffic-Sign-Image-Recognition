@@ -58,7 +58,7 @@ variable "train_ami_id" {
     description = "Training EC2 instance AMI to use"
 }
 
-variable "var.key_name" {
+variable "key_name" {
     description = "Key-value pair to use (should already exist in AWS)"
 }
 
