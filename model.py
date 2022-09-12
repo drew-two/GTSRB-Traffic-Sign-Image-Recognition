@@ -33,7 +33,7 @@ def load_model(model_name):
     return model
 
 def base64_decode_image(encoded_image):
-    decoded_image = base64.decodebytes(encoded_image)
+    decoded_image = base64.b64decode(encoded_image)
     return decoded_image
 
 def base64_decode(encoded_data):
