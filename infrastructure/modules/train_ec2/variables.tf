@@ -16,10 +16,6 @@ variable "key_name" {
     description = "SSH Key pair to use that already exists in AWS"
 }
 
-variable "model_bucket" {
-    description = "Model Bucket"
-}
-
 variable "mlflow_dns" {
     description = "MLflow server url"
 }
