@@ -3,6 +3,7 @@
 resource "aws_instance" "mlflow_ec2" {
     name            = var.instance_name
     instance_type   = var.instance_type
+    security_groups = var.security_groups
     key_name        = var.key_name
     ami             = var.ami
     subnet_id       = var.subnet_id 

@@ -48,24 +48,30 @@ module "s3_bucket"  {
 
 # MLflow instance
 module "mlflow_instance"  {
-  source        = "./modules/mlflow_ec2"
-  ami_id        = var.ami_id
-  key_name      = var.key_name
-  ec2_name      = "${var.instance_name}-${var.project_id}"
-  instance_type = vars.instance_type
-  model_bucket  = module.s3_bucket.id
+  source                = "./modules/mlflow_ec2"
+  ami_id                = var.ami_id
+  key_name              = var.key_name
+  instance_name         = "${var.instance_name}-${var.project_id}"
+  instance_type         = vars.instance_type
+  availability_zone     = vars.availability_zone
+  subnet_id             = vars.subnet_id 
+  vpc_security_group_id = vars.vpc_security_group_id
+  model_bucket          = module.s3_bucket.id
 }
 
 
-# # Training instance
-# module "train_instance"  {
-#   source        = "./modules/train_ec2"
-#   ami_id        = var.train_ami_id
-#   key_name      = var.key_name
-#   ec2_name      = "${var.train_instance_name}-${var.project_id}"
-#   instance_type = vars.train_instance_type
-#   mlflow_dns     = module.mlflow_instance.private_dns
-# }
+# Training instance
+module "train_instance"  {
+  source                = "./modules/train_ec2"
+  ami_id                = var.train_ami_id
+  key_name              = var.key_name
+  instance_name         = "${var.train_instance_name}-${var.project_id}"
+  instance_type         = vars.train_instance_type
+  availability_zone     = vars.availability_zone
+  subnet_id             = vars.subnet_id 
+  vpc_security_group_id = vars.vpc_security_group_id
+  mlflow_dns            = module.mlflow_instance.private_dns
+}
 
 # image registry
 module "ecr_image" {

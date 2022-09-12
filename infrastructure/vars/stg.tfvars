@@ -1,6 +1,6 @@
 aws_region = "us-east-2"
 subnet_id = "subnet-0f52ce138a72959bd"
-vpc_security_group_id = "sg-091776d030c85068d"
+vpc_security_group_id = ["sg-091776d030c85068d"]
 availability_zone = "us-east-2a"
 key_name = "MLOps"
 
