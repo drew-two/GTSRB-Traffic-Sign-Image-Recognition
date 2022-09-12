@@ -29,13 +29,17 @@ s3://tf-state-mlops-final
 3. Run the terraform commands:
     1. terraform init
     2. terraform plan (optional: -out)
-    3. terraform apply
-4. Connect ports to see monitored services
+    3. terraform apply [--var-file=vars/stg.tfvars]
+4. Connect to ports to see monitored services
 
 ## Misc
 
+- Integration tests are only partially complete (you can see the class code)
+- Unit tests are done
+- See pyproject.toml, .pre-commit-config.yaml for linter and/or code formatter
+- There's pre-commit hooks
 - MLflow tracking for experiment + models
     - See backend.db, ./models, or s3://mlops-final-models (public bucket)
     - There's only few runs in MLflow because I don't have the AWS quota to allocate GPU instances 
-- See pyproject.toml, .pre-commit-config.yaml for linter and/or code formatter
-- There's pre-commit hooks
+- Training instance (EC2)
+- Kinesis streams

@@ -1,3 +1,5 @@
+import os
+
 import mlflow
 import tensorflow as tf
 from tensorflow import keras
@@ -167,8 +169,9 @@ test_generator = validation_datagen.flow_from_directory(
     class_mode='categorical',
 )
 
-
-mlflow.set_tracking_uri("http://localhost:5000/")
+mlflow_address = os.getenv(MLFLOW_URL, "http://localhost:5000/")
+mlflow_uri = "http://" + mlflow_address + ":5000/"
+mlflow.set_tracking_uri(mlflow_uri)
 mlflow.set_experiment("road-signs-recognition")
 
 
@@ -194,7 +197,7 @@ mlflow.log_metric("test_acc", test_acc)
 
 # ## Registering Model
 
-client = MlflowClient("http://127.0.0.1:5000")
+client = MlflowClient(mlflow_uri)
 
 
 client.list_registered_models()
