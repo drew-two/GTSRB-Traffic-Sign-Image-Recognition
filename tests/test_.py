@@ -33,8 +33,6 @@ def test_base64_decode():
         "sign_id": 0,
     }
 
-    print(actual_result)
-
     assert actual_result == expected_result
 
 class ModelMock:
@@ -47,7 +45,7 @@ class ModelMock:
 
 
 def test_lambda_handler():
-    model_mock = ModelMock("A sign")
+    model_mock = ModelMock("0")
     model_version = 'Test123'
     model_service = model.ModelService(model_mock, model_version)
 
@@ -70,7 +68,7 @@ def test_lambda_handler():
                 'model': 'sign-classifier',
                 'version': None,
                 'prediction': {
-                    'sign_prediction': "A sign", 
+                    'sign_prediction': "Speed limit (20km/h) sign.", 
                     'sign_id': 256
                     },
             }
