@@ -67,7 +67,7 @@ def test_lambda_handler():
         'predictions': [
             {
                 'model': 'sign-classifier',
-                'version': None,
+                'version': model_version,
                 'prediction': {
                     'sign_prediction': "Speed limit (20km/h) sign.", 
                     'sign_id': 256
