@@ -32,6 +32,8 @@ s3://tf-state-mlops-final
     3. terraform apply [--var-file=vars/stg.tfvars]
 4. Connect to ports to see monitored services
 
+Sorry... I didn't have time to make anything for you to test the lambda with. test/test_.py code might help
+
 ## Misc
 
 - Integration tests are only partially complete (you can see the class code)

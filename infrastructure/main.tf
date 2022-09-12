@@ -52,10 +52,10 @@ module "mlflow_instance"  {
   ami_id                = var.ami_id
   key_name              = var.key_name
   instance_name         = "${var.mlflow_instance_name}-${var.project_id}"
-  instance_type         = vars.instance_type
-  availability_zone     = vars.availability_zone
-  subnet_id             = vars.subnet_id 
-  vpc_security_group_id = vars.vpc_security_group_id
+  instance_type         = var.instance_type
+  availability_zone     = var.availability_zone
+  subnet_id             = var.subnet_id 
+  vpc_security_group_id = var.vpc_security_group_id
   model_bucket          = module.s3_bucket.bucket
 }
 
@@ -66,10 +66,10 @@ module "train_instance"  {
   ami_id                = var.train_ami_id
   key_name              = var.key_name
   instance_name         = "${var.train_instance_name}-${var.project_id}"
-  instance_type         = vars.train_instance_type
-  availability_zone     = vars.availability_zone
-  subnet_id             = vars.subnet_id 
-  vpc_security_group_id = vars.vpc_security_group_id
+  instance_type         = var.train_instance_type
+  availability_zone     = var.availability_zone
+  subnet_id             = var.subnet_id 
+  vpc_security_group_id = var.vpc_security_group_id
   mlflow_dns            = module.mlflow_instance.ec2_private_dns
 }
 
