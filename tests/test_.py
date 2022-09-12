@@ -10,13 +10,15 @@ def read_text(file):
     with open(test_directory / file, 'rt', encoding='utf-8') as f_in:
         return f_in.read().strip()
 
+def read_image(file):
+    test_directory = Path(__file__).parent
+
+    with open(test_directory / file, 'r') as f_in:
+        return f_in.read()
 
 def test_base64_decode_image():
-    base64_input = read_text('image.b64')
-
     actual_result = model.base64_decode_image(base64_input)
-    with open("0.png", "rb") as image:
-        expected_result = image.read()
+    expected_result = read_text('0.png')
 
     assert actual_result == expected_result
 

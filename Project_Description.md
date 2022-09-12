@@ -27,7 +27,7 @@ You may not agree with how I have judged myself so far, this for me to plan my p
 	- [ ] Best: 	Comprehensive model monitoring that send alerts or runs a conditional workflow (e.g. retraining, generating debugging dashboard, switching to a different model) if the defined metrics threshold is violated
 
 7. Reproducibility
-	- [ ] Minimum:	Some instructions are there, but they are not complete
+	- [x] Minimum:	Some instructions are there, but they are not complete
 	- [ ] Best: 	Instructions are clear, it's easy to run the code, and the code works. The version for all the dependencies are specified.
 
 ### Best practices
