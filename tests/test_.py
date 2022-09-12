@@ -10,13 +10,18 @@ def read_text(file):
 
 
 def test_base64_decode():
-    base64_input = read_text('data.b64')
+    # base64_input = read_text('data.b64')
 
-    actual_result = model.base64_decode(base64_input)
+    # base64_encode
+
+    # actual_result = model.base64_decode(base64_input)
     expected_result = {
         "sign_id": "Speed limit (20km/h) sign.",
         "sign_id": 0,
     }
+
+    with open("result.b64", "wb") as fh:
+        fh.write(base64.b64encode(expected_result))
 
     assert actual_result == expected_result
 
