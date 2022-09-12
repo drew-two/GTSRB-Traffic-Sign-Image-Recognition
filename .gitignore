@@ -1,2 +1,4 @@
 data/
 notebook/.ipynb_checkpoints/
+infrastructure/.terraform/
+infrastructure/.terraform*

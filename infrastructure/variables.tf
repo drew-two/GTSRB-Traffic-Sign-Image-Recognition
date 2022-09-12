@@ -7,3 +7,7 @@ variable "project_id" {
     description = "project_id"
     default = "mlops-final"
 }
+
+variable "source_stream_name" {
+    description = ""
+}

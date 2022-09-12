@@ -7,7 +7,6 @@ name = "pypi"
 tensorflow = "==2.8.2"
 importlib-resources = "*"
 boto3 = "*"
-tensorflow-directml-plugin = "*"
 
 [dev-packages]
 mlflow = "1.28.0"

@@ -1,5 +1,7 @@
 FROM python:3.9-slim
 
+RUN sudo apt-get update && sudo apt-get install -y zip unzip
+
 RUN pip install -U pip
 RUN pip install pipenv
 
