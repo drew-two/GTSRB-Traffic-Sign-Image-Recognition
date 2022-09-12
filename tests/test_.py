@@ -9,19 +9,25 @@ def read_text(file):
         return f_in.read().strip()
 
 
+def test_base64_decode_image():
+    base64_input = read_text('image.b64')
+
+    actual_result = model.base64_decode_image(base64_input)
+    with open("0.png", "rb") as image:
+        expected_result = image.read()
+
+    assert actual_result == expected_result
+
 def test_base64_decode():
-    # base64_input = read_text('data.b64')
+    base64_input = read_text('result.b64')
 
-    # base64_encode
-
-    # actual_result = model.base64_decode(base64_input)
+    actual_result = model.base64_decode(base64_input)
     expected_result = {
-        "sign_id": "Speed limit (20km/h) sign.",
+        "sign_prediction": "Speed limit (20km/h) sign.",
         "sign_id": 0,
     }
 
-    with open("result.b64", "wb") as fh:
-        fh.write(base64.b64encode(expected_result))
+    print(actual_result)
 
     assert actual_result == expected_result
 
