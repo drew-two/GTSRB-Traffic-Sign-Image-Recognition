@@ -51,7 +51,7 @@ module "mlflow_instance"  {
   source                = "./modules/mlflow_ec2"
   ami_id                = var.ami_id
   key_name              = var.key_name
-  instance_name         = "${var.instance_name}-${var.project_id}"
+  instance_name         = "${var.mlflow_instance_name}-${var.project_id}"
   instance_type         = vars.instance_type
   availability_zone     = vars.availability_zone
   subnet_id             = vars.subnet_id 

@@ -12,17 +12,14 @@ variable "aws_region" {
 
 variable "subnet_id" {
     description = "project_id"
-    default = "subnet-0f52ce138a72959bd"
 }
 
 variable "vpc_security_group_id" {
     description = "vpc_security_group_id"
-    default = "sg-091776d030c85068d"
 }
 
 variable "availability_zone" {
     description = "availability_zone"
-    default = "us-east-2a"
 }
 
 ## Resource parameters
@@ -38,12 +35,16 @@ variable "model_bucket_name" {
     description = "Model S3 bucket name"
 }
 
-variable "mlflow_instance_name" {
-    description = "MLflow instance name"
+variable "instance_type" {
+    description = "General EC2 instance type"
 }
 
 variable "ami_id" {
     description = "General service AMI ID"
+}
+
+variable "mlflow_instance_name" {
+    description = "MLflow instance name"
 }
 
 variable "train_instance_name" {
