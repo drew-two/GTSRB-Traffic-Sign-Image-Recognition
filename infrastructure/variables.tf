@@ -32,6 +32,10 @@ variable "output_stream_name" {
     description = "Predictions from model"
 }
 
+variable "training_instance_name" {
+    description = "Training EC2 server"
+}
+
 variable "model_bucket_name" {
     description = "Model S3 bucket name"
 }

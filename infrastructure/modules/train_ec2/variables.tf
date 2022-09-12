@@ -1,7 +1,13 @@
+variable "ec2_name" {
+    type = string
+    description = "Training EC2 name"
+}
+
 variable "instance_type" {
     type = string
     description = "EC2 Instance size/type"
-    default = "p3.2xlarge"
+    # default = "p3.2xlarge"
+    default = "t2.xlarge"
 }
 
 variable "ami_id" {

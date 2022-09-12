@@ -41,6 +41,12 @@ module "output_kinesis_stream"  {
   tags = var.project_id
 }
 
+# Training instance
+module "training_instance"  {
+  source      = "./modules/training_ec2"
+  ec2_name = "${var.training_instance_name}-${var.project_id}"
+}
+
 # model bucket
 module "s3_bucket"  {
   source      = "./modules/s3"
