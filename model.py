@@ -5,6 +5,7 @@ import base64
 import boto3
 import mlflow
 import numpy as np
+from PIL import Image
 
 from tensorflow.keras.applications.resnet_v2 import preprocess_input
 from tensorflow.keras.preprocessing import image
@@ -38,7 +39,6 @@ def base64_decode_image(encoded_image):
 
 def base64_decode(encoded_data):
     decoded_data = base64.b64decode(encoded_data).decode('utf-8')
-    print(decoded_data)
     sign_event = json.loads(decoded_data)
     return sign_event
 
@@ -66,7 +66,8 @@ class ModelService:
             sign = sign_event['sign']
             sign_id = sign_event['sign_id']
 
-            sign_image = base64_decode_image(sign)
+            image_bytes = base64_decode_image(sign)
+            sign_image = Image.open(image_bytes)
             image_array = image.img_to_array(sign_image)
             image_batch = np.expand_dims(sign_image, axis=0)
             normalized = preprocess_input(image_batch)
