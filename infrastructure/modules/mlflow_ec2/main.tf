@@ -28,9 +28,9 @@ output "ec2_arn" {
 }
 
 output "ec2_public_dns" {
-    value = aws_instance.mlflow_ec2._public_dns
+    value = aws_instance.mlflow_ec2.public_dns
 }
 
 output "ec2_private_dns" {
-    value = aws_instance.mlflow_ec2._private_dns
+    value = aws_instance.mlflow_ec2.private_dns
 }
