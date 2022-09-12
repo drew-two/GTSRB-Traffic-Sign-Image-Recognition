@@ -20,7 +20,7 @@ variable "vpc_security_group_id" {
 
 variable "availability_zone" {
     description = "availability_zone"
-    default = "${aws_region}a"
+    default = "us-east-2a"
 }
 
 variable "source_stream_name" {
