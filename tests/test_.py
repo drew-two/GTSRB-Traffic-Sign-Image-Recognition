@@ -51,7 +51,7 @@ def test_lambda_handler():
     model_version = 'Test123'
     model_service = model.ModelService(model_mock, model_version)
 
-    base64_input = read_text('data.b64')
+    base64_input = read_text('result.b64')
 
     event = {
         "Records": [
