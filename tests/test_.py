@@ -17,8 +17,8 @@ def read_image(file):
         return f_in.read()
 
 def test_base64_decode_image():
-    actual_result = model.base64_decode_image(base64_input)
-    expected_result = read_text('0.png')
+    actual_result = model.base64_decode_image("image.b64")
+    expected_result = read_image('0.png')
 
     assert actual_result == expected_result
 
@@ -28,8 +28,8 @@ def test_base64_decode():
 
     actual_result = model.base64_decode(base64_input)
     expected_result = {
-        "sign_prediction": "Speed limit (20km/h) sign.",
-        "sign_id": 0,
+        'sign_prediction': 'Speed limit (20km/h) sign.',
+        'sign_id': 0,
     }
 
     print(actual_result)
