@@ -17,7 +17,9 @@ def read_image(file):
         return f_in.read()
 
 def test_base64_decode_image():
-    actual_result = model.base64_decode_image("image.b64")
+    base64_input = read_text('result.b64')
+
+    actual_result = model.base64_decode_image(base64_input)
     expected_result = read_image('0.png')
 
     assert actual_result == expected_result
