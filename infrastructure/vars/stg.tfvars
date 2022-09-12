@@ -1,0 +1,15 @@
+aws_region = "us-east-2"
+subnet_id = "subnet-0f52ce138a72959bd"
+vpc_security_group_id = "sg-091776d030c85068d"
+availability_zone = "us-east-2a"
+
+source_stream_name = "stg_sign_events"
+output_stream_name = "stg_sign_predictions"
+model_bucket_name = "stg-sign-predict-mlflow-models"
+lambda_function_local_path = "../lambda_function.py"
+docker_image_local_path = "../Dockerfile"
+ecr_repo_name = "stg_sign_prediction_model"
+lambda_function_name = "stg_sign_prediction_lambda"
+
+instance_type = "t2.large"
+train_instance_type = "t2.2xlarge"

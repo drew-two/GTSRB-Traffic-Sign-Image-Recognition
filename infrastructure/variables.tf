@@ -34,13 +34,17 @@ variable "output_stream_name" {
     description = "Predictions from model"
 }
 
-# variable "training_instance_name" {
-#     description = "Training EC2 server"
-# }
-
 variable "model_bucket_name" {
     description = "Model S3 bucket name"
 }
+
+# variable "train_instance_name" {
+#     description = "Training EC2 instance name"
+# }
+
+# variable "train_instance_type" {
+#     description = "Training EC2 instance type"
+# }
 
 variable "lambda_function_local_path" {
     description = "Path to final lambda function"
@@ -52,4 +56,8 @@ variable "docker_image_local_path" {
 
 variable "ecr_repo_name" {
     description = "ECR repo name"
+}
+
+variable "lambda_function_name" {
+    description = "Main lambda function name"
 }
