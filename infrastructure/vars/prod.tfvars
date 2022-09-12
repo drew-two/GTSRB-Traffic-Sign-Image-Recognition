@@ -11,7 +11,7 @@ lambda_function_local_path = "../lambda_function.py"
 docker_image_local_path = "../Dockerfile"
 ecr_repo_name = "sign_prediction_model"
 lambda_function_name = "sign_prediction_lambda"
-model_name="sign-classifier"
+run_id="d64b05c80dbc4196bd929401f70abb33"
 
 instance_type = "t2.2xlarge"
 train_instance_type = "p3.2xlarge"

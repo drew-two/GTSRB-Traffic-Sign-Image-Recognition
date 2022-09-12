@@ -58,6 +58,10 @@ variable "lambda_function_local_path" {
     description = "Path to final lambda function"
 }
 
+variable "run_id" {
+    description = "Run ID for model"
+}
+
 variable "docker_image_local_path" {
     description = "Path to dockerfile"
 }
