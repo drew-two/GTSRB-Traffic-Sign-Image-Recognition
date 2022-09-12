@@ -1,6 +1,7 @@
 import os
 import json
 import base64
+from io import BytesIO
 
 import boto3
 import mlflow
@@ -34,8 +35,9 @@ def load_model(run_id):
     return model
 
 def base64_decode_image(encoded_image):
-    decoded_image = base64.b64decode(encoded_image)
-    return decoded_image
+    decoded_bytes = base64.b64decode(encoded_image)
+    image = Image.open(BytesIO(decoded_bytes))
+    return image
 
 def base64_decode(encoded_data):
     decoded_data = base64.b64decode(encoded_data).decode('utf-8')
@@ -66,8 +68,7 @@ class ModelService:
             sign = sign_event['sign']
             sign_id = sign_event['sign_id']
 
-            image_bytes = base64_decode_image(sign)
-            sign_image = Image.open(image_bytes)
+            sign_image = base64_decode_image(sign)
             image_array = image.img_to_array(sign_image)
             image_batch = np.expand_dims(sign_image, axis=0)
             normalized = preprocess_input(image_batch)
