@@ -122,7 +122,7 @@ class ModelService:
             prediction = self.predict(normalized)
 
             prediction_event = {
-                'model': 'sign_prediction_model',
+                'model': 'sign-classifier',
                 'version': self.model_version,
                 'prediction': {'sign_prediction': prediction, 'sign_id': sign_id},
             }
