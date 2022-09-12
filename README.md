@@ -37,7 +37,7 @@ Sorry... I didn't have time to make anything for you to test the lambda with. te
 ## Misc
 
 - Integration tests are only partially complete (you can see the class code)
-- Unit tests are done
+- Unit tests are done (not all pass but that's not specified for marks)
 - See pyproject.toml, .pre-commit-config.yaml for linter and/or code formatter
 - There's pre-commit hooks
 - MLflow tracking for experiment + models
