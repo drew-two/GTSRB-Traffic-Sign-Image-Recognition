@@ -1,12 +1,28 @@
 # MLOps Final Project
 
-## Project Statement
+## Dataset
 
-Between 20-50 million people are injured each year in traffic accidents and over 1 million die. These are now the global killers over individules ages 5-29. We have technology, Advanced Driving-Assistance Systems that are intended to aid drivers and improve safety. ADAS are an essential component of autonomous vehicles, and to that end, traffic sign recognition is a pertinent problem. Such systems can allow the vehicle to detect and recognize traffic signs in every direction, especially when drivers may not. The faster the rdetection and classification, especially compared to human reaction time, the greater the possible safety advantage granted to the driver.
+Run the following to get the data:
 
-To this end, sophisticated traffic sign classification systems are a necessary component of any ADAS system. This project will implement a toy example using a Convolutional Neural Network via Keras with the German Traffic Sign Recognition Benchmark (GTSRB). Although this is not ideal for a production vehicle, such applications could be useful for model testing by data scientists, or for monitoring production models as well as possible redundancy.
+!wget -P ../data https://sid.erda.dk/public/archives/daaeac0d7ce1152aea9b61d9f1e19370/GTSRB-Training_fixed.zip
+!wget -P ../data https://sid.erda.dk/public/archives/daaeac0d7ce1152aea9b61d9f1e19370/GTSRB_Online-Test-Images-Sorted.zip
+rm -rf ../data/GTSRB/Online-Test-sort/Images
 
-Chosen because I am interested and it is relatively small, should be easier to download/unpack etc.
+## Running code
 
-Disclaimer: I trained this locally, as I have a GPU and Amazon GPU instances can be expensive.
-Otherwise, I would have run that part in the cloud.
+Note: This runs a Convolutional Neural Network that may take a a few minutes to predict or be expensive to allocate in AWS for training. Also, buckets have been left public for your convenience.
+
+s3://mlops-final-models
+s3://tf-state-mlops-final
+
+//TODO
+- Run Terraform to deploy model
+OR
+- Load container locally via make
+
+## Misc
+
+- MLflow tracking for experiment + models
+    - See backend.db, ./models, or s3://mlops-final-models (public bucket)
+- See pyproject.toml, .pre-commit-config.yaml for linter and/or code formatter
+- There's pre-commit hooks

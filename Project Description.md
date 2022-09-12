@@ -36,7 +36,7 @@ Chosen because I am interested and it is relatively small, should be easier to d
 	- [ ] Best: 	The project is developed on the cloud and IaC tools are used for provisioning the infrastructure
 
 3. Experiment tracking and model registry
-	- [ ] Both experiment tracking and model registry are used
+	- [x] Both experiment tracking and model registry are used
 
 4. Workflow orchestration
 	- [ ] Minimum:	Basic workflow orchestration
