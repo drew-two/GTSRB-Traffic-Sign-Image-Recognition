@@ -4,8 +4,9 @@ import base64
 
 import boto3
 import mlflow
+import numpy as np
 
-from tensorflow.keras.applications.resnet_v2 import preprocess_input, decode_predictions
+from tensorflow.keras.applications.resnet_v2 import preprocess_input
 from tensorflow.keras.preprocessing import image
 
 def get_model_location(model_name):
@@ -18,6 +19,8 @@ def get_model_location(model_name):
     experiment_id = os.getenv('MLFLOW_EXPERIMENT_ID', '1')
 
     model_location = f"models:/{model_name}/Production"
+    model_location = f's3://{model_bucket}/{experiment_id}/{run_id}/artifacts/model'
+
     return model_location
 
 
@@ -29,6 +32,9 @@ def load_model(model_name):
     )
     return model
 
+def base64_decode_image(encoded_image):
+    decoded_image = base64.decodebytes(encoded_image)
+    return decoded_image
 
 def base64_decode(encoded_data):
     decoded_data = base64.b64decode(encoded_data).decode('utf-8')
@@ -42,8 +48,8 @@ class ModelService:
         self.model_version = model_version
         self.callbacks = callbacks or []
 
-    def predict(self, image):
-        pred = self.model.predict(image)
+    def predict(self, img):
+        prediction = self.model.predict(img)
         predicted_class = class_labels[np.argmax(prediction, axis=1)[0]]
         return predicted_class + " sign."
 
@@ -59,12 +65,12 @@ class ModelService:
             sign = sign_event['sign']
             sign_id = sign_event['sign_id']
 
-            sign_image = base64.decodebytes(sign)
+            sign_image = base64_decode_image(sign)
             image_array = image.img_to_array(sign_image)
             image_batch = np.expand_dims(sign_image, axis=0)
-            normalized = preprocess_input(img_batch)
+            normalized = preprocess_input(image_batch)
 
-            prediction = self.predict(image_batch)
+            prediction = self.predict(normalized)
 
             prediction_event = {
                 'model': 'sign_prediction_model',
