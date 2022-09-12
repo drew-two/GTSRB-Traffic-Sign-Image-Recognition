@@ -1,3 +1,4 @@
+./Pipfile.lock
 data/GTSRB/
 data/GTSRB*
 artifacts_local/
