@@ -1,4 +1,6 @@
-# MLOps Final Project
+# GTSRB Traffic Sign Image Rec
+
+MLOps Final Project
 
 ![Traffic Signs](./data/dataset-cover.jpg)
 
@@ -14,7 +16,8 @@ To this end, sophisticated traffic sign classification systems are a necessary c
 - Anaconda
 - Jupyter
 - Pipenv/Pyenv
-- Tensorflow
+- Tensorflow/Keras
+- Convolutional Neural Networks
 - MLflow
 - Pytest
 - Pre-commit (isort, black, pylint)
