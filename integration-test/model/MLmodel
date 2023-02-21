@@ -1,16 +1,17 @@
 artifact_path: model
 flavors:
-  python_function:
-    env: conda.yaml
-    loader_module: mlflow.sklearn
-    model_path: model.pkl
-    python_version: 3.9.7
-  sklearn:
+  keras:
     code: null
-    pickled_model: model.pkl
-    serialization_format: cloudpickle
-    sklearn_version: 1.0.2
-mlflow_version: 1.26.1
-model_uuid: 78edf19ceea5463aadce7d84f3f9bc82
-run_id: e1efc53e9bd149078b0c12aeaa6365df
-utc_time_created: '2022-06-01 12:49:55.846831'
+    data: data
+    keras_module: tensorflow.keras
+    keras_version: 2.8.0
+    save_format: tf
+  python_function:
+    data: data
+    env: conda.yaml
+    loader_module: mlflow.keras
+    python_version: 3.8.10
+mlflow_version: 1.28.0
+model_uuid: aa1430073cff4f3e81e3958d29d0ddac
+run_id: d64b05c80dbc4196bd929401f70abb33
+utc_time_created: '2022-09-12 08:05:17.252591'

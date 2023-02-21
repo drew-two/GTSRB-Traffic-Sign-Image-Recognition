@@ -1,8 +1,4 @@
-# MLOps Final Project
-
-You may not agree with how I have judged myself so far, this was just for me to plan my project
-
-## What's Needed
+# MLOps Final Project Planning
 
 1. Problem description
 	- [x] Problem is well described and it's clear what the problem the project solves

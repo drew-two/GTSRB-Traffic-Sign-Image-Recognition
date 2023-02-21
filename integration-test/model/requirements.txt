@@ -1,5 +1,10 @@
 mlflow
-cloudpickle==2.0.0
-psutil==5.8.0
-scikit-learn==1.0.2
-typing-extensions==3.10.0.2
+boto3==1.24.70
+cffi==1.15.1
+defusedxml==0.7.1
+dill==0.3.5.1
+keras==2.8.0
+pandas==1.4.4
+pillow==9.2.0
+scipy==1.9.1
+tensorflow==2.8.2

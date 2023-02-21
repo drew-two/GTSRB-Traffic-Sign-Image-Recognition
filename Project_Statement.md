@@ -4,11 +4,6 @@ Between 20-50 million people are injured each year in traffic accidents and over
 
 To this end, sophisticated traffic sign classification systems are a necessary component of any ADAS system. This project will implement a toy example using a Convolutional Neural Network via Keras with the German Traffic Sign Recognition Benchmark (GTSRB). Although this is not ideal for a production vehicle, such applications could be useful for model testing by data scientists, or for monitoring production models as well as possible redundancy.
 
-Chosen because I am interested and it is relatively small, should be easier to download/unpack etc.
-
-Disclaimer: I trained this locally, as I have a GPU and Amazon GPU instances can be expensive.
-Otherwise, I would have run that part in the cloud.
-
 ## Dataset:
 
 German Traffic Sign Recognition Benchmark (GTSRB)
@@ -18,7 +13,7 @@ https://benchmark.ini.rub.de/
 
 (Testing Data)[https://sid.erda.dk/public/archives/daaeac0d7ce1152aea9b61d9f1e19370/GTSRB_Online-Test-Images-Sorted.zip]
 
-From Kaggle:
+Kaggle description:
 
 The German Traffic Sign Benchmark is a multi-class, single-image classification challenge held at the International Joint Conference on Neural Networks (IJCNN) 2011. We cordially invite researchers from relevant fields to participate: The competition is designed to allow for participation without special domain knowledge. Our benchmark has the following properties:
 

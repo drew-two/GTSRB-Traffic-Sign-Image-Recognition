@@ -1,7 +1,7 @@
 Pipfile.lock
 data/GTSRB/
-data/GTSRB*
 artifacts_local/
+integration-test/model/data/model/
 notebook/.ipynb_checkpoints/
 infrastructure/.terraform/
-infrastructure/.terraform*
+infrastructure/.terraform.lock.hcl

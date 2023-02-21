@@ -8,6 +8,7 @@ repos:
     - id: end-of-file-fixer
     - id: check-yaml
     - id: check-added-large-files
+      exclude: ^integration-test/model/
 - repo: https://github.com/pycqa/isort
   rev: 5.10.1
   hooks:
