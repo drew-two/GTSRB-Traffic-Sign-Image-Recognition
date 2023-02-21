@@ -1,4 +1,4 @@
-# GTSRB Traffic Sign Image Rec
+# GTSRB Traffic Sign Image Recognition
 
 MLOps Final Project
 
@@ -17,7 +17,7 @@ To this end, sophisticated traffic sign classification systems are a necessary c
 - Jupyter
 - Pipenv/Pyenv
 - Tensorflow/Keras
-- Convolutional Neural Networks
+- Convolutional Neural Networks (CNNs)
 - MLflow
 - Pytest
 - Pre-commit (isort, black, pylint)
